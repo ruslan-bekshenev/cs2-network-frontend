@@ -1,5 +1,22 @@
-import { Card, CardBody, Heading, Stack, Text } from "@chakra-ui/react";
+"use client";
+
+import { SmallAddIcon } from "@chakra-ui/icons";
+import {
+  Box,
+  Button,
+  Card,
+  CardBody,
+  Heading,
+  Stat,
+  StatGroup,
+  StatLabel,
+  StatNumber,
+} from "@chakra-ui/react";
 import Image from "next/image";
+
+import RequestToFriendsButton from "../RequestToFriendsButton";
+
+
 
 const PlayerCard = () => {
   return (
@@ -7,20 +24,54 @@ const PlayerCard = () => {
       <Image
         width={200}
         height={200}
-        src="https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
+        src="https://distribution.faceit-cdn.net/images/42846d46-5d0c-46d9-ac76-0259d7ccefb2.jpeg"
         alt="Caffe Latte"
       />
 
-      <Stack>
+      <Box width="100%">
         <CardBody>
-          <Heading size="md">The perfect latte</Heading>
+          <Heading size="lg" marginBottom={4} fontWeight={700}>
+            dmnkcore
+          </Heading>
 
-          <Text py="2">
-            Caffè latte is a coffee beverage of Italian origin made with
-            espresso and steamed milk.
-          </Text>
+          <Box
+            textTransform="uppercase"
+            display="flex"
+            flexWrap="wrap"
+            marginBottom={4}
+          >
+            <StatGroup
+              display="grid"
+              gridTemplateColumns="repeat(5, 1fr)"
+              gap={6}
+            >
+              <Stat>
+                <StatLabel color="teal">Matches</StatLabel>
+                <StatNumber>1594</StatNumber>
+              </Stat>
+              <Stat>
+                <StatLabel color="teal">Win rate, %</StatLabel>
+                <StatNumber>50</StatNumber>
+              </Stat>
+              <Stat>
+                <StatLabel color="teal">Win streak</StatLabel>
+                <StatNumber>8</StatNumber>
+              </Stat>
+              <Stat>
+                <StatLabel color="teal">AVG k/d ratio</StatLabel>
+                <StatNumber>0.98</StatNumber>
+              </Stat>
+              <Stat>
+                <StatLabel color="teal">AVG headshots, %</StatLabel>
+                <StatNumber>43</StatNumber>
+              </Stat>
+            </StatGroup>
+          </Box>
+          <Box>
+            <RequestToFriendsButton />
+          </Box>
         </CardBody>
-      </Stack>
+      </Box>
     </Card>
   );
 };

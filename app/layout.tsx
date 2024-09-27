@@ -22,8 +22,8 @@ export default function RootLayout({
       <body>
         <Providers>
           <Navbar />
-          <Box>
-            <Container maxWidth="1280px">{children}</Container>
+          <Box py={16}>
+            <Container maxWidth="1170px">{children}</Container>
           </Box>
         </Providers>
       </body>

@@ -5,7 +5,7 @@ import PlayerCard from "@/components/PlayerCard";
 export default function Home() {
   return (
     <div>
-      <Stack>
+      <Stack gap={8}>
         <PlayerCard />
         <PlayerCard />
         <PlayerCard />
