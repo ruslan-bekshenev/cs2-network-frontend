@@ -1,10 +1,12 @@
 "use client";
 
+import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import {
   Box,
-  Container,
+  Button,
   Flex,
   Stack,
+  useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
 
@@ -12,6 +14,7 @@ import NavbarMenu from "../NavbarMenu";
 import ProfileMenu from "../ProfileMenu";
 
 const Navbar = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Box
       px={16}
@@ -30,6 +33,9 @@ const Navbar = () => {
 
         <Flex alignItems={"center"}>
           <Stack direction={"row"} spacing={7}>
+            <Button onClick={toggleColorMode}>
+              {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+            </Button>
             <ProfileMenu />
           </Stack>
         </Flex>

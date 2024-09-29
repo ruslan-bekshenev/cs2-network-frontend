@@ -1,9 +1,8 @@
 "use client";
 
-import { SmallAddIcon } from "@chakra-ui/icons";
 import {
+  Alert,
   Box,
-  Button,
   Card,
   CardBody,
   Heading,
@@ -24,6 +23,7 @@ type PlayerCardProps = {
   nickname?: string;
   statistic?: Array<{ name: string; value: number }>;
   friendStatus?: "isFriend" | "sendedRequest" | "notFriend";
+  notesData?: { id: string; text: string };
 };
 
 const PlayerCard = (props: PlayerCardProps) => {
@@ -38,9 +38,14 @@ const PlayerCard = (props: PlayerCardProps) => {
 
       <Box width="100%">
         <CardBody>
-          <Heading size="lg" marginBottom={4} fontWeight={700}>
-            dmnkcore
-          </Heading>
+          <Box display="flex" gap="16px" alignItems="center" marginBottom={4}>
+            <Heading size="lg" fontWeight={700}>
+              dmnkcore
+            </Heading>
+            <Box maxHeight={30}>
+              <Image width={30} height={30} src="/level5010.png" alt="10 lvl" />
+            </Box>
+          </Box>
 
           <Box
             textTransform="uppercase"
@@ -50,9 +55,13 @@ const PlayerCard = (props: PlayerCardProps) => {
           >
             <StatGroup
               display="grid"
-              gridTemplateColumns="repeat(5, 1fr)"
+              gridTemplateColumns="repeat(6, 1fr)"
               gap={6}
             >
+              <Stat>
+                <StatLabel color="teal">ELO</StatLabel>
+                <StatNumber>2010</StatNumber>
+              </Stat>
               <Stat>
                 <StatLabel color="teal">Matches</StatLabel>
                 <StatNumber>1594</StatNumber>
@@ -70,11 +79,18 @@ const PlayerCard = (props: PlayerCardProps) => {
                 <StatNumber>0.98</StatNumber>
               </Stat>
               <Stat>
-                <StatLabel color="teal">AVG headshots, %</StatLabel>
+                <StatLabel color="teal">AVG HS, %</StatLabel>
                 <StatNumber>43</StatNumber>
               </Stat>
             </StatGroup>
           </Box>
+
+          <Box marginBottom={3}>
+            <Alert variant="left-accent" status="info">
+              Ищу тиммейтов на FACEIT от 7 LVL
+            </Alert>
+          </Box>
+
           <Box>
             <RequestToFriendsButton />
           </Box>
