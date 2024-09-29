@@ -16,9 +16,17 @@ import Image from "next/image";
 
 import RequestToFriendsButton from "../RequestToFriendsButton";
 
+type PlayerCardProps = {
+  avatar?: {
+    alt: string;
+    src: string;
+  };
+  nickname?: string;
+  statistic?: Array<{ name: string; value: number }>;
+  friendStatus?: "isFriend" | "sendedRequest" | "notFriend";
+};
 
-
-const PlayerCard = () => {
+const PlayerCard = (props: PlayerCardProps) => {
   return (
     <Card direction={{ base: "column", sm: "row" }} overflow="hidden">
       <Image
